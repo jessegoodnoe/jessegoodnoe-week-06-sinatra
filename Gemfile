@@ -13,4 +13,9 @@ group :test do
   gem 'rack-test'
 end
 
-gem 'growl_notify'
+group :development do
+	if RUBY_PLATFORM.downcase.include?("darwin")
+		gem 'growl_notify'
+	end
+end
+
