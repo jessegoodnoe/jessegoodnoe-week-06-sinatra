@@ -13,11 +13,15 @@ class TwitterInfo < Sinatra::Application
   get '/user/:username' do
 
     @user = params[:username]
-    user_id = Twitter.user(@user).id
-    followers = Twitter.follower_ids(user_id).ids
-    @num_followers = followers.length
+    begin
+      user_id = Twitter.user(@user).id
+      followers = Twitter.follower_ids(user_id).ids
+      @num_followers = followers.length
 
-    haml :followers
+      haml :followers
+    rescue Twitter::NotFound
+      halt 404, "The user #{@user} was not found."
+    end
 
   end
 
