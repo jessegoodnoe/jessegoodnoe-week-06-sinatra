@@ -1,5 +1,7 @@
 # Week 6 Sinatra Heroku Example
 
+[![Build Status](https://secure.travis-ci.org/jessegoodnoe/jessegoodnoe-week-06-sinatra.png)]
+
 ## Outline
 
 * Developing, testing and deploying web services
